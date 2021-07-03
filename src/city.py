@@ -1,8 +1,12 @@
 """This module implements a city object, heart of the generation."""
-from shapely.geometry import Polygon
+
+import numpy as np
+from shapely.geometry import MultiPolygon
+from shapely.ops import cascaded_union
 
 import src.tools as tools
 from src.area import Area, Category
+from src.regions import create_regions, create_houses
 
 
 class City:
@@ -26,13 +30,33 @@ class City:
         self.has_walls = has_walls
         self.has_castle = has_castle
         self.has_river = has_river
-        self.districts = []
 
-    @staticmethod
-    def components():
-        poly = Polygon([(0, 0), (2, 0), (1, 2), (0, 0)])
-        area = Area(poly, Category.HOUSE)
-        return [area]
+        walls, regions = create_regions(population, density)
+
+        self.areas = [Area(walls, Category.WALL)]
+
+        houses = create_houses(walls, population)
+        print(len(houses), 'houses')
+        print(population / len(houses), 'hab/house')
+
+        for region in regions:
+            self.areas.append(Area(region, Category.LAND))
+
+        streets = cascaded_union(MultiPolygon(houses))
+        self.areas.append(Area(streets, Category.STREET))
+
+        houses = [house.buffer(-1, join_style=2) for house in houses]
+
+        houses_area = np.average([house.area for house in houses])
+        print('houses area before destruction : ', houses_area, 'm²')
+
+        houses = [house for house in houses if house.area > 50]
+
+        houses_area = np.average([house.area for house in houses])
+        print('houses area after destruction : ', houses_area, 'm²')
+
+        for house in houses:
+            self.areas.append(Area(house, Category.HOUSE))
 
 
 if __name__ == '__main__':

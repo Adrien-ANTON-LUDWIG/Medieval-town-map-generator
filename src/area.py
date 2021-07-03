@@ -74,6 +74,10 @@ class Area():
     def __repr__(self):
         return str(self._category) + ':' + self.polygon.wkt
 
+    def __str__(self):
+        return 'Area : id =  ' + str(self._id) + ' / category = ' +\
+               str(self._category) + ' / polygon = ' + str(self._polygon)
+
     @property
     def identity(self):
         return self._id

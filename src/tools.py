@@ -10,26 +10,26 @@ SCHEMA = {
 }
 
 
-def json(what, filename):
+def json(city, filename):
     """
     Saves a city object into a JSON file.
-    :param what: city object.
+    :param city: city object.
     :param filename: location to save JSON file.
     """
     with fiona.open(filename, 'w', 'GeoJSON', SCHEMA) as c:
-        for co in what.components():
-            if isinstance(co.polygon(), MultiPolygon):
-                for p in co.polygon():
+        for area in city.areas:
+            if isinstance(area.polygon, MultiPolygon):
+                for p in area.polygon:
                     c.write({
                         'geometry': mapping(p),
                         'properties': {
-                            'category': co.category().value
+                            'category': area.category.value
                         },
                     })
             else:
                 c.write({
-                    'geometry': mapping(co.polygon()),
+                    'geometry': mapping(area.polygon),
                     'properties': {
-                        'category': co.category().value
+                        'category': area.category.value
                     },
                 })
