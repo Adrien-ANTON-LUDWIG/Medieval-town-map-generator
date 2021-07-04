@@ -5,7 +5,7 @@ import numpy as np
 from shapely import ops
 from shapely.geometry import Polygon, LineString, MultiPolygon
 
-import src.tools as tools
+import src.town_generator.tools as tools
 
 
 class Category(IntEnum):

@@ -4,9 +4,12 @@ import numpy as np
 from shapely.geometry import MultiPolygon
 from shapely.ops import cascaded_union, unary_union
 
-import src.tools as tools
-from src.area import Area, Category
-from src.regions import create_regions, create_houses, create_roads, cut_houses, reduce_house, create_walls
+import src.town_generator.tools as tools
+from src.town_generator.area import Area, Category
+from src.town_generator.houses import create_houses, cut_houses, reduce_house
+from src.town_generator.regions import create_regions
+from src.town_generator.roads import create_roads
+from src.town_generator.walls import create_walls
 
 
 class City:

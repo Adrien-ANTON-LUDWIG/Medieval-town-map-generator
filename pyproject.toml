@@ -1,15 +1,13 @@
 [tool.poetry]
-name = "pton"
+name = "town_generator"
 version = "0.1.0"
-description = "Town generator"
+description = "Town generator."
 authors = ["Adrien Anton Ludwig <adrien.anton-ludwig@epita.fr>", "Adele Pluquet <adele.pluquet@epita.fr>"]
-readme = 'README.md'
 
 [tool.poetry.dependencies]
 python = "^3.9"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
