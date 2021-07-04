@@ -7,7 +7,7 @@ from shapely.ops import cascaded_union, unary_union
 import src.town_generator.tools as tools
 from src.town_generator.area import Area, Category
 from src.town_generator.doors import create_doors
-from src.town_generator.houses import create_houses, cut_houses, reduce_house
+from src.town_generator.houses import create_houses, cut_houses, reduce_houses
 from src.town_generator.regions import create_regions
 from src.town_generator.roads import create_roads, cut_roads
 from src.town_generator.towers import create_towers
@@ -82,7 +82,7 @@ class City:
         streets = cascaded_union(MultiPolygon(houses))
         self.areas.append(Area(streets, Category.STREET))
 
-        houses = [reduce_house(house) for house in houses]
+        houses = reduce_houses(houses)
         for house in houses:
             self.areas.append(Area(house, Category.HOUSE))
 
