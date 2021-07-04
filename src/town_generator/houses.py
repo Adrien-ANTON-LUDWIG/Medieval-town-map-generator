@@ -1,5 +1,5 @@
 """This module functions to create houses."""
-
+import random
 from math import isqrt
 
 import numpy as np
@@ -27,10 +27,13 @@ def create_houses(land, population):
     (min_x, min_y, max_x, max_y) = land.bounds
 
     radius = ((max_x - min_x) + (max_y - min_y)) / 2
+    delta = radius / 10
 
-    points = np.array([[x, y]
-                       for x in np.linspace(min_x, max_x, isqrt_houses_number)
-                       for y in np.linspace(min_y, max_y, isqrt_houses_number)])
+    points = np.array([
+        [x, y]
+        for x in np.linspace(min_x - delta, max_x + delta, isqrt_houses_number)
+        for y in np.linspace(min_y - delta, max_y + delta, isqrt_houses_number)
+    ])
     points += np.random.random((len(points), 2)) * (radius / 3)
 
     voronoi = Voronoi(points)
@@ -38,12 +41,18 @@ def create_houses(land, population):
     houses = [r for r in voronoi.regions if -1 not in r and len(r) > 0]
     houses = [Polygon([voronoi.vertices[i] for i in house]) for house in houses]
 
-    houses = [
-        house for house in houses
-        if land.buffer(-radius / 10, join_style=2).contains(house)
-    ]
+    fields = []
+    new_houses = []
 
-    return houses
+    for house in houses:
+        if land.buffer(-radius / 10, join_style=2).contains(house):
+            new_houses.append(house)
+        elif land.contains(house):
+            fields.append(house)
+
+    fields = [field for field in fields if random.randint(0, 5) == 0]
+
+    return new_houses, fields
 
 
 def cut_houses(houses, roads):
@@ -71,14 +80,15 @@ def cut_houses(houses, roads):
     return new_houses
 
 
-def reduce_house(house):
+def reduce_houses(houses):
     """
     Scales down the houses.
 
     Args:
-        house ([Polygon]): list of polygons representing houses.
+        houses ([Polygon]): list of polygons representing houses.
 
     Returns:
         [Polygon]: list of polygon representing houses.
     """
-    return house.buffer(-1, join_style=2)
+    houses = [house.buffer(-1, join_style=2) for house in houses]
+    return [house for house in houses if len(house.bounds) == 4]

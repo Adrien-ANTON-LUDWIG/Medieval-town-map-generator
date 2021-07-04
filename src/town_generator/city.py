@@ -62,7 +62,7 @@ class City:
         for tower in towers:
             self.areas.append(Area(tower, Category.WALL))
 
-        houses = create_houses(land, population)
+        houses, fields = create_houses(land, population)
         print(len(houses), 'houses')
         houses_area = np.average([house.area for house in houses])
         print('houses area before split : ', houses_area, 'm²')
@@ -89,6 +89,10 @@ class City:
         gardens = create_gardens(houses, streets)
         for garden in gardens:
             self.areas.append(Area(garden, Category.GARDEN))
+
+        fields = cut_houses(fields, roads)
+        for field in fields:
+            self.areas.append(Area(field, Category.FIELD))
 
 
 if __name__ == '__main__':
