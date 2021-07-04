@@ -21,7 +21,7 @@ You have several ways to use the city generator. In both cases, you can give an 
 You can launch the code with python 3 with an optional argument :
 
 ```
-$ python3 main.py [(int) number of citizens]
+python3 main.py [(int) number of citizens]
 ```
 
 ### From the python script

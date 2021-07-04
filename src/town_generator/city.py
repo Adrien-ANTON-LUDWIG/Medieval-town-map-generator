@@ -13,6 +13,7 @@ from src.town_generator.roads import create_roads, cut_roads
 from src.town_generator.towers import create_towers
 from src.town_generator.walls import create_walls
 from src.town_generator.gardens import create_gardens
+from src.town_generator.university import create_universities
 
 
 class City:
@@ -81,6 +82,10 @@ class City:
 
         streets = cascaded_union(MultiPolygon(houses))
         self.areas.append(Area(streets, Category.STREET))
+
+        houses, universities = create_universities(houses)
+        for university in universities:
+            self.areas.append(Area(university, Category.UNIVERSITY))
 
         houses = reduce_houses(houses)
         for house in houses:
