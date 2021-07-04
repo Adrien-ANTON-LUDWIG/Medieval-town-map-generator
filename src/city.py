@@ -1,12 +1,12 @@
 """This module implements a city object, heart of the generation."""
 
 import numpy as np
-from shapely.geometry import MultiPolygon, LinearRing
-from shapely.ops import cascaded_union
+from shapely.geometry import MultiPolygon
+from shapely.ops import cascaded_union, unary_union
 
 import src.tools as tools
 from src.area import Area, Category
-from src.regions import create_regions, create_houses, create_roads
+from src.regions import create_regions, create_houses, create_roads, cut_houses, reduce_house, create_walls
 
 
 class City:
@@ -31,42 +31,44 @@ class City:
         self.has_castle = has_castle
         self.has_river = has_river
 
-        walls, regions = create_regions(population, density)
-
-        self.areas = [Area(walls, Category.WALL)]
-
-        houses = create_houses(walls, population)
-        print(len(houses), 'houses')
-        print(population / len(houses), 'hab/house')
+        self.areas = []
+        regions = create_regions(population, density)
+        land = unary_union(regions)
 
         for region in regions:
             self.areas.append(Area(region, Category.LAND))
 
-        streets = cascaded_union(MultiPolygon(houses))
-        self.areas.append(Area(streets, Category.STREET))
+        roads = create_roads(regions)
 
+        walls = create_walls(roads)
+        self.areas.append(Area(walls, Category.WALL))
+
+        roads = roads.difference(walls)
+        self.areas.append(Area(roads, Category.ROAD))
+
+        houses = create_houses(land, population)
+        print(len(houses), 'houses')
         houses_area = np.average([house.area for house in houses])
-        print('houses area before destruction : ', houses_area, 'm²')
+        print('houses area before split : ', houses_area, 'm²')
 
-        houses = [house for house in houses if house.area > 50]
+        houses = cut_houses(houses, roads)
+        print(len(houses), 'houses')
+        houses_area = np.average([house.area for house in houses])
+        print('houses area after split : ', houses_area, 'm²')
 
+        houses = [house for house in houses if house.area > 30]
+        print(len(houses), 'houses')
         houses_area = np.average([house.area for house in houses])
         print('houses area after destruction : ', houses_area, 'm²')
 
-        print(len(houses), 'houses')
-        roads, houses = create_roads(regions, houses)
-        print(len(houses), 'houses')
+        print(population / len(houses), 'hab/house')
 
-        for road in roads:
-            self.areas.append(Area(road, Category.COMPOSITE))
+        streets = cascaded_union(MultiPolygon(houses))
+        self.areas.append(Area(streets, Category.STREET))
 
-        # houses = cut_houses(houses, roads)
-
+        houses = [reduce_house(house) for house in houses]
         for house in houses:
             self.areas.append(Area(house, Category.HOUSE))
-
-        walls = LinearRing(walls.exterior.coords).buffer(5, join_style=2)
-        self.areas.append(Area(walls, Category.WALL))
 
 
 if __name__ == '__main__':
