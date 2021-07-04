@@ -33,6 +33,7 @@ class Category(IntEnum):
     WALL = 33
     STREET = 50
     BRIDGE = 51
+    ROAD = 52
     COMPOSITE = 90  # a union of Areas
 
 
