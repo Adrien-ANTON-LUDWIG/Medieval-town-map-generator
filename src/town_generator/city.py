@@ -12,6 +12,7 @@ from src.town_generator.regions import create_regions
 from src.town_generator.roads import create_roads, cut_roads
 from src.town_generator.towers import create_towers
 from src.town_generator.walls import create_walls
+from src.town_generator.gardens import create_gardens
 
 
 class City:
@@ -84,6 +85,10 @@ class City:
         houses = [reduce_house(house) for house in houses]
         for house in houses:
             self.areas.append(Area(house, Category.HOUSE))
+
+        gardens = create_gardens(houses, streets)
+        for garden in gardens:
+            self.areas.append(Area(garden, Category.GARDEN))
 
 
 if __name__ == '__main__':
