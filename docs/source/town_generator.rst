@@ -20,6 +20,14 @@ town\_generator.city module
    :undoc-members:
    :show-inheritance:
 
+town\_generator.doors module
+----------------------------
+
+.. automodule:: town_generator.doors
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 town\_generator.houses module
 -----------------------------
 
@@ -48,6 +56,14 @@ town\_generator.tools module
 ----------------------------
 
 .. automodule:: town_generator.tools
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+town\_generator.towers module
+-----------------------------
+
+.. automodule:: town_generator.towers
    :members:
    :undoc-members:
    :show-inheritance:
