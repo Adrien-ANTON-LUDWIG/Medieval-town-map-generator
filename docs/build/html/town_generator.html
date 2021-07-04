@@ -1,0 +1,580 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>town_generator package &#8212; Medieval Town Generator 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="src" href="modules.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="src"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Medieval Town Generator 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">src</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">town_generator package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="town-generator-package">
+<h1>town_generator package<a class="headerlink" href="#town-generator-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-town_generator.area">
+<span id="town-generator-area-module"></span><h2>town_generator.area module<a class="headerlink" href="#module-town_generator.area" title="Permalink to this headline">¶</a></h2>
+<p>This module implements the Area object.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="town_generator.area.Area">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">town_generator.area.</span></span><span class="sig-name descname"><span class="pre">Area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">polygon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_areas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.area.Area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Implements areas. These are contained by cities.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="town_generator.area.Area.category">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">category</span></span><a class="headerlink" href="#town_generator.area.Area.category" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="town_generator.area.Area.components">
+<span class="sig-name descname"><span class="pre">components</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.area.Area.components" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="town_generator.area.Area.get_id">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.area.Area.get_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="town_generator.area.Area.identity">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">identity</span></span><a class="headerlink" href="#town_generator.area.Area.identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns id</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Area.members">
+<span class="sig-name descname"><span class="pre">members</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#town_generator.area.Area.members" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="town_generator.area.Area.polygon">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">polygon</span></span><a class="headerlink" href="#town_generator.area.Area.polygon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="town_generator.area.Area.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">percentage</span></em>, <em class="sig-param"><span class="pre">direction</span></em>, <em class="sig-param"><span class="pre">inplace=True</span></em>, <em class="sig-param"><span class="pre">new_category=&lt;Category.GARDEN:</span> <span class="pre">8&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.area.Area.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split an area in two areas. Store result in self.sub_areas if
+inplace == True.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>percentage</strong> – float - percentage of surface for first area, between 0</p></li>
+<li><p><strong>1 direction</strong> (<em>and</em>) – int - side for first area (from center to</p></li>
+<li><p><strong>= North</strong> (<em>0</em>) – Category - category of the</p></li>
+<li><p><strong>= East</strong><strong>...</strong><strong>) </strong><strong>new_category</strong> (<em>90</em>) – Category - category of the</p></li>
+<li><p><strong>area</strong> (<em>second</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Returns: if inplace == False</dt><dd><p>area1: Area
+area2: Area</p>
+</dd>
+<dt>Tests:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">surf</span> <span class="o">=</span> <span class="n">Area</span><span class="p">(</span><span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">)]),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">Category</span><span class="o">.</span><span class="n">HOUSE</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># house takes 1/4 of surface</span>
+<span class="go">                                        and is north</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res0</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res0</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">polygon</span><span class="p">)</span><span class="o">.</span><span class="n">area</span> <span class="o">&lt;</span> <span class="mi">1</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="town_generator.area.Category">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">town_generator.area.</span></span><span class="sig-name descname"><span class="pre">Category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.area.Category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<p>Enum defining different types of land.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.BRIDGE">
+<span class="sig-name descname"><span class="pre">BRIDGE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">51</span></em><a class="headerlink" href="#town_generator.area.Category.BRIDGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.CASTLE">
+<span class="sig-name descname"><span class="pre">CASTLE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">32</span></em><a class="headerlink" href="#town_generator.area.Category.CASTLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.CATHEDRAL">
+<span class="sig-name descname"><span class="pre">CATHEDRAL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">21</span></em><a class="headerlink" href="#town_generator.area.Category.CATHEDRAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.CHURCH">
+<span class="sig-name descname"><span class="pre">CHURCH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">20</span></em><a class="headerlink" href="#town_generator.area.Category.CHURCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.COMPOSITE">
+<span class="sig-name descname"><span class="pre">COMPOSITE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">90</span></em><a class="headerlink" href="#town_generator.area.Category.COMPOSITE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.DOOR">
+<span class="sig-name descname"><span class="pre">DOOR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">34</span></em><a class="headerlink" href="#town_generator.area.Category.DOOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.FARM">
+<span class="sig-name descname"><span class="pre">FARM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">15</span></em><a class="headerlink" href="#town_generator.area.Category.FARM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.FIELD">
+<span class="sig-name descname"><span class="pre">FIELD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#town_generator.area.Category.FIELD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.FOREST">
+<span class="sig-name descname"><span class="pre">FOREST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#town_generator.area.Category.FOREST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.FORT">
+<span class="sig-name descname"><span class="pre">FORT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">31</span></em><a class="headerlink" href="#town_generator.area.Category.FORT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.GARDEN">
+<span class="sig-name descname"><span class="pre">GARDEN</span></span><em class="property"> <span class="pre">=</span> <span class="pre">8</span></em><a class="headerlink" href="#town_generator.area.Category.GARDEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.HOUSE">
+<span class="sig-name descname"><span class="pre">HOUSE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">10</span></em><a class="headerlink" href="#town_generator.area.Category.HOUSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.LAKE">
+<span class="sig-name descname"><span class="pre">LAKE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">5</span></em><a class="headerlink" href="#town_generator.area.Category.LAKE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.LAND">
+<span class="sig-name descname"><span class="pre">LAND</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#town_generator.area.Category.LAND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.MANSION">
+<span class="sig-name descname"><span class="pre">MANSION</span></span><em class="property"> <span class="pre">=</span> <span class="pre">11</span></em><a class="headerlink" href="#town_generator.area.Category.MANSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.MARKET">
+<span class="sig-name descname"><span class="pre">MARKET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">12</span></em><a class="headerlink" href="#town_generator.area.Category.MARKET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.MONASTRY">
+<span class="sig-name descname"><span class="pre">MONASTRY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">22</span></em><a class="headerlink" href="#town_generator.area.Category.MONASTRY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.PARK">
+<span class="sig-name descname"><span class="pre">PARK</span></span><em class="property"> <span class="pre">=</span> <span class="pre">7</span></em><a class="headerlink" href="#town_generator.area.Category.PARK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.RIVER">
+<span class="sig-name descname"><span class="pre">RIVER</span></span><em class="property"> <span class="pre">=</span> <span class="pre">4</span></em><a class="headerlink" href="#town_generator.area.Category.RIVER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.ROAD">
+<span class="sig-name descname"><span class="pre">ROAD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">52</span></em><a class="headerlink" href="#town_generator.area.Category.ROAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.SEA">
+<span class="sig-name descname"><span class="pre">SEA</span></span><em class="property"> <span class="pre">=</span> <span class="pre">6</span></em><a class="headerlink" href="#town_generator.area.Category.SEA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.STREET">
+<span class="sig-name descname"><span class="pre">STREET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">50</span></em><a class="headerlink" href="#town_generator.area.Category.STREET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.TOWNHALL">
+<span class="sig-name descname"><span class="pre">TOWNHALL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">13</span></em><a class="headerlink" href="#town_generator.area.Category.TOWNHALL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.UNDEFINED">
+<span class="sig-name descname"><span class="pre">UNDEFINED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#town_generator.area.Category.UNDEFINED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.UNIVERSITY">
+<span class="sig-name descname"><span class="pre">UNIVERSITY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">14</span></em><a class="headerlink" href="#town_generator.area.Category.UNIVERSITY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="town_generator.area.Category.WALL">
+<span class="sig-name descname"><span class="pre">WALL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">33</span></em><a class="headerlink" href="#town_generator.area.Category.WALL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-town_generator.city">
+<span id="town-generator-city-module"></span><h2>town_generator.city module<a class="headerlink" href="#module-town_generator.city" title="Permalink to this headline">¶</a></h2>
+<p>This module implements a city object, heart of the generation.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="town_generator.city.City">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">town_generator.city.</span></span><span class="sig-name descname"><span class="pre">City</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_walls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_castle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_river</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.city.City" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Implements the city object. It’s the top of the hierarchy.
+It contains areas.</p>
+</dd></dl>
+
+</section>
+<section id="module-town_generator.doors">
+<span id="town-generator-doors-module"></span><h2>town_generator.doors module<a class="headerlink" href="#module-town_generator.doors" title="Permalink to this headline">¶</a></h2>
+<p>This module enables to create doors.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="town_generator.doors.create_doors">
+<span class="sig-prename descclassname"><span class="pre">town_generator.doors.</span></span><span class="sig-name descname"><span class="pre">create_doors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">walls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roads</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">land</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.doors.create_doors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes doors at the intersection of walls and roads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>walls</strong> (<em>Polygon</em>) – polygon representing the outer walls of the city.</p></li>
+<li><p><strong>roads</strong> (<em>Polygon</em>) – polygon representing the roads of the city.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of polygons</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[Polygon]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-town_generator.houses">
+<span id="town-generator-houses-module"></span><h2>town_generator.houses module<a class="headerlink" href="#module-town_generator.houses" title="Permalink to this headline">¶</a></h2>
+<p>This module functions to create houses.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="town_generator.houses.create_houses">
+<span class="sig-prename descclassname"><span class="pre">town_generator.houses.</span></span><span class="sig-name descname"><span class="pre">create_houses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">land</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.houses.create_houses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a varying number of houses.
+Houses’ number and size depends on the city population.
+Houses are created from the center of the city  and not too close to the
+walls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>land</strong> (<em>Polygon</em>) – walls of the city.</p></li>
+<li><p><strong>population</strong> (<em>int</em>) – population of the city.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>polygons representing houses.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[Polygon]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="town_generator.houses.cut_houses">
+<span class="sig-prename descclassname"><span class="pre">town_generator.houses.</span></span><span class="sig-name descname"><span class="pre">cut_houses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">houses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roads</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.houses.cut_houses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cut previously generated houses (polygons) to avoid overlapping roads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>houses</strong> (<em>[</em><em>Polygon</em><em>]</em>) – list of polygons representing houses.</p></li>
+<li><p><strong>roads</strong> (<em>Polygon</em>) – polygon representing roads.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of new polygons representing houses.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[Polygon]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="town_generator.houses.reduce_house">
+<span class="sig-prename descclassname"><span class="pre">town_generator.houses.</span></span><span class="sig-name descname"><span class="pre">reduce_house</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">house</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.houses.reduce_house" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scales down the houses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>house</strong> (<em>[</em><em>Polygon</em><em>]</em>) – list of polygons representing houses.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of polygon representing houses.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[Polygon]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-town_generator.regions">
+<span id="town-generator-regions-module"></span><h2>town_generator.regions module<a class="headerlink" href="#module-town_generator.regions" title="Permalink to this headline">¶</a></h2>
+<p>This module implements Voronoi’s pavage to split the map into regions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="town_generator.regions.create_regions">
+<span class="sig-prename descclassname"><span class="pre">town_generator.regions.</span></span><span class="sig-name descname"><span class="pre">create_regions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.regions.create_regions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a varying number of regions.
+Regions’ size depends on population and density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>population</strong> (<em>int</em>) – population of the city.</p></li>
+<li><p><strong>density</strong> (<em>int</em>) – density of the city.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>polygons representing regions.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[Polygon]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-town_generator.roads">
+<span id="town-generator-roads-module"></span><h2>town_generator.roads module<a class="headerlink" href="#module-town_generator.roads" title="Permalink to this headline">¶</a></h2>
+<p>This module enables to create roads.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="town_generator.roads.create_roads">
+<span class="sig-prename descclassname"><span class="pre">town_generator.roads.</span></span><span class="sig-name descname"><span class="pre">create_roads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.roads.create_roads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes main roads delimiting regions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>regions</strong> (<em>[</em><em>Polygon</em><em>]</em>) – regions of the city.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>computed roads.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Polygon</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="town_generator.roads.cut_roads">
+<span class="sig-prename descclassname"><span class="pre">town_generator.roads.</span></span><span class="sig-name descname"><span class="pre">cut_roads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roads</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">land</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.roads.cut_roads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize the roads to stay inside the land.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>roads</strong> (<em>Polygon</em>) – polygon representing the roads.</p></li>
+<li><p><strong>land</strong> (<em>Polygon</em>) – polygon representing the land.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>polygon representing the roads.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Polygon</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-town_generator.tools">
+<span id="town-generator-tools-module"></span><h2>town_generator.tools module<a class="headerlink" href="#module-town_generator.tools" title="Permalink to this headline">¶</a></h2>
+<p>This module enables to save a city into a JSON file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="town_generator.tools.json">
+<span class="sig-prename descclassname"><span class="pre">town_generator.tools.</span></span><span class="sig-name descname"><span class="pre">json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">city</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.tools.json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves a city object into a JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>city</strong> (<a class="reference internal" href="#town_generator.city.City" title="town_generator.city.City"><em>City</em></a>) – city object.</p></li>
+<li><p><strong>filename</strong> (<em>string</em>) – location to save JSON file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-town_generator.towers">
+<span id="town-generator-towers-module"></span><h2>town_generator.towers module<a class="headerlink" href="#module-town_generator.towers" title="Permalink to this headline">¶</a></h2>
+<p>This module enables to create towers.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="town_generator.towers.create_towers">
+<span class="sig-prename descclassname"><span class="pre">town_generator.towers.</span></span><span class="sig-name descname"><span class="pre">create_towers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">walls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.towers.create_towers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes towers on outer walls angles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>walls</strong> (<em>Polygon</em>) – polygon representing the outer walls of the city.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of polygons representing towers.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[Polygon]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-town_generator.viewer">
+<span id="town-generator-viewer-module"></span><h2>town_generator.viewer module<a class="headerlink" href="#module-town_generator.viewer" title="Permalink to this headline">¶</a></h2>
+<p>This module displays a city JSON file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="town_generator.viewer.display">
+<span class="sig-prename descclassname"><span class="pre">town_generator.viewer.</span></span><span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.viewer.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays a city object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – location of a JSON file representing a city.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-town_generator.walls">
+<span id="town-generator-walls-module"></span><h2>town_generator.walls module<a class="headerlink" href="#module-town_generator.walls" title="Permalink to this headline">¶</a></h2>
+<p>This module enables to create walls.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="town_generator.walls.create_walls">
+<span class="sig-prename descclassname"><span class="pre">town_generator.walls.</span></span><span class="sig-name descname"><span class="pre">create_walls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">land</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#town_generator.walls.create_walls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute walls from the perimeter of the roads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>land</strong> (<em>Polygon</em>) – main roads of the city.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>walls of the city.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Polygon</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-town_generator">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-town_generator" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">town_generator package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-town_generator.area">town_generator.area module</a></li>
+<li><a class="reference internal" href="#module-town_generator.city">town_generator.city module</a></li>
+<li><a class="reference internal" href="#module-town_generator.doors">town_generator.doors module</a></li>
+<li><a class="reference internal" href="#module-town_generator.houses">town_generator.houses module</a></li>
+<li><a class="reference internal" href="#module-town_generator.regions">town_generator.regions module</a></li>
+<li><a class="reference internal" href="#module-town_generator.roads">town_generator.roads module</a></li>
+<li><a class="reference internal" href="#module-town_generator.tools">town_generator.tools module</a></li>
+<li><a class="reference internal" href="#module-town_generator.towers">town_generator.towers module</a></li>
+<li><a class="reference internal" href="#module-town_generator.viewer">town_generator.viewer module</a></li>
+<li><a class="reference internal" href="#module-town_generator.walls">town_generator.walls module</a></li>
+<li><a class="reference internal" href="#module-town_generator">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="modules.html"
+                        title="previous chapter">src</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/town_generator.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="src"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Medieval Town Generator 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >src</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">town_generator package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Adele PLUQUET, Adrien ANTON LUDWIG.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>
