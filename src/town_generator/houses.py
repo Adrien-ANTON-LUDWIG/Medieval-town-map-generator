@@ -13,9 +13,13 @@ def create_houses(land, population):
     Houses' number and size depends on the city population.
     Houses are created from the center of the city  and not too close to the
     walls.
-    :param land: walls of the city.
-    :param population: population of the city.
-    :return: polygons representing houses.
+
+    Args:
+        land (Polygon): walls of the city.
+        population (int): population of the city.
+
+    Returns:
+        [Polygon]: polygons representing houses.
     """
     houses_number = int(population / 1.5)
     isqrt_houses_number = isqrt(houses_number)
@@ -45,9 +49,13 @@ def create_houses(land, population):
 def cut_houses(houses, roads):
     """
     Cut previously generated houses (polygons) to avoid overlapping roads.
-    :param houses: list of polygons representing houses.
-    :param roads: polygon representing roads.
-    :return: list of new polygons representing houses.
+
+    Args:
+        houses ([Polygon]): list of polygons representing houses.
+        roads (Polygon): polygon representing roads.
+
+    Returns:
+        [Polygon]: list of new polygons representing houses.
     """
 
     new_houses = []
@@ -66,7 +74,11 @@ def cut_houses(houses, roads):
 def reduce_house(house):
     """
     Scales down the houses.
-    :param house: list of polygons representing houses.
-    :return: list of polygon representing houses.
+
+    Args:
+        house ([Polygon]): list of polygons representing houses.
+
+    Returns:
+        [Polygon]: list of polygon representing houses.
     """
     return house.buffer(-1, join_style=2)

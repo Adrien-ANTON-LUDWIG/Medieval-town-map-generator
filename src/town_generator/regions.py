@@ -10,9 +10,13 @@ def create_regions(population, density):
     """
     Compute a varying number of regions.
     Regions' size depends on population and density.
-    :param population: population of the city.
-    :param density: density of the city.
-    :return: walls and regions polygons.
+
+    Args:
+        population (int): population of the city.
+        density (int): density of the city.
+
+    Returns:
+        [Polygon]: polygons representing regions.
     """
     superficy = population / density * 1000000
     side = isqrt(int(superficy))

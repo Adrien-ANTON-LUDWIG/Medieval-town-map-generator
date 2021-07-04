@@ -13,8 +13,10 @@ SCHEMA = {
 def json(city, filename):
     """
     Saves a city object into a JSON file.
-    :param city: city object.
-    :param filename: location to save JSON file.
+
+    Args:
+        city (City): city object.
+        filename (string): location to save JSON file.
     """
     with fiona.open(filename, 'w', 'GeoJSON', SCHEMA) as c:
         for area in city.areas:

@@ -5,7 +5,7 @@ import numpy as np
 from shapely import ops
 from shapely.geometry import Polygon, LineString, MultiPolygon
 
-import src.town_generator.tools as tools
+from src.town_generator import tools
 
 
 class Category(IntEnum):
@@ -81,6 +81,7 @@ class Area():
 
     @property
     def identity(self):
+        """Returns id"""
         return self._id
 
     @property
