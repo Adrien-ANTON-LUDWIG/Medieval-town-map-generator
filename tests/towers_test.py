@@ -1,4 +1,10 @@
-"""This module contains the unit tests of the towers' module."""
+"""This module contains the unit tests of the towers' module.
+
+This is more of an example of unit tests.
+As the code depends mostly on other libraries,
+not so much test are needed.
+"""
+
 from matplotlib.patches import Polygon
 
 from src.town_generator.towers import create_towers
