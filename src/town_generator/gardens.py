@@ -42,10 +42,9 @@ def create_gardens(houses, streets):
     Returns:
         [Polygons]: list of the gardens
     """
-
     gardens = []
     for house in houses:
         if has_garden(house, streets):
-            garden = house.buffer(-3, join_style=2)
+            garden = house.buffer(-(house.length / 15), join_style=2)
             gardens.append(garden)
     return gardens
