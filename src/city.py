@@ -1,12 +1,12 @@
 """This module implements a city object, heart of the generation."""
 
 import numpy as np
-from shapely.geometry import MultiPolygon
+from shapely.geometry import MultiPolygon, LinearRing
 from shapely.ops import cascaded_union
 
 import src.tools as tools
 from src.area import Area, Category
-from src.regions import create_regions, create_houses
+from src.regions import create_regions, create_houses, create_roads
 
 
 class City:
@@ -45,8 +45,6 @@ class City:
         streets = cascaded_union(MultiPolygon(houses))
         self.areas.append(Area(streets, Category.STREET))
 
-        houses = [house.buffer(-1, join_style=2) for house in houses]
-
         houses_area = np.average([house.area for house in houses])
         print('houses area before destruction : ', houses_area, 'm²')
 
@@ -55,8 +53,20 @@ class City:
         houses_area = np.average([house.area for house in houses])
         print('houses area after destruction : ', houses_area, 'm²')
 
+        print(len(houses), 'houses')
+        roads, houses = create_roads(regions, houses)
+        print(len(houses), 'houses')
+
+        for road in roads:
+            self.areas.append(Area(road, Category.COMPOSITE))
+
+        # houses = cut_houses(houses, roads)
+
         for house in houses:
             self.areas.append(Area(house, Category.HOUSE))
+
+        walls = LinearRing(walls.exterior.coords).buffer(5, join_style=2)
+        self.areas.append(Area(walls, Category.WALL))
 
 
 if __name__ == '__main__':
