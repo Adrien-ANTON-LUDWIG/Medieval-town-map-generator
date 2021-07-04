@@ -4,7 +4,7 @@ import matplotlib.pylab as plt
 from matplotlib.colors import ListedColormap
 
 
-def dipslay(filename):
+def display(filename):
     """
     Displays a city object.
 
@@ -26,6 +26,7 @@ def dipslay(filename):
         31: [0.4, 0.4, 0.4, 1],
         32: [0.6, 0.6, 0.6, 1],
         33: [0.2, 0.2, 0.2, 1],
+        34: [133 / 255, 94 / 255, 66 / 255, 1],
         50: [0.95, 0.95, 0.95],
         52: [254 / 255, 235 / 255, 219 / 255],
         90: [1, 0, 0, 1]

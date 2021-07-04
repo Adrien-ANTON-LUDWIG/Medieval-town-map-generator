@@ -2,8 +2,9 @@
 from math import isqrt
 
 import numpy as np
-from scipy.spatial import Voronoi
+from scipy.spatial import Voronoi, Delaunay
 from shapely.geometry import Polygon
+from shapely.ops import unary_union
 
 
 def create_regions(population, density):
@@ -21,7 +22,7 @@ def create_regions(population, density):
     superficy = population / density * 1000000
     side = isqrt(int(superficy))
     radius = side / 2
-    isqrt_regions_number = 6
+    isqrt_regions_number = 4
 
     points = np.array(
         [[x, y]
@@ -30,14 +31,24 @@ def create_regions(population, density):
     points += np.random.random((len(points), 2)) * (radius / 3)
 
     voronoi = Voronoi(points)
+    delaunay = Delaunay(points)
 
-    regions = [r for r in voronoi.regions if -1 not in r and len(r) > 0]
     regions = [
-        Polygon([voronoi.vertices[i] for i in region]) for region in regions
+        Polygon([delaunay.points[i]
+                 for i in region])
+        for region in delaunay.simplices
     ]
 
-    zone = Polygon((2 * np.random.random(
-        (8, 2)) - 1) * radius).convex_hull.buffer(radius / 2)
-    regions = [region for region in regions if zone.contains(region)]
+    roads_plans = [r for r in voronoi.regions if -1 not in r and len(r) > 0]
+    roads_plans = [
+        Polygon([voronoi.vertices[i]
+                 for i in road_plan])
+        for road_plan in roads_plans
+    ]
 
-    return regions
+    zone = unary_union(regions)
+    roads_plans = [
+        road_plan for road_plan in roads_plans if zone.intersects(road_plan)
+    ]
+
+    return regions, roads_plans

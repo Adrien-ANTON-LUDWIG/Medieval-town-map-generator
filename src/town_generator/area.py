@@ -31,6 +31,7 @@ class Category(IntEnum):
     FORT = 31
     CASTLE = 32
     WALL = 33
+    DOOR = 34
     STREET = 50
     BRIDGE = 51
     ROAD = 52

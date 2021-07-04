@@ -6,9 +6,11 @@ from shapely.ops import cascaded_union, unary_union
 
 import src.town_generator.tools as tools
 from src.town_generator.area import Area, Category
+from src.town_generator.doors import create_doors
 from src.town_generator.houses import create_houses, cut_houses, reduce_house
 from src.town_generator.regions import create_regions
-from src.town_generator.roads import create_roads
+from src.town_generator.roads import create_roads, cut_roads
+from src.town_generator.towers import create_towers
 from src.town_generator.walls import create_walls
 
 
@@ -35,19 +37,29 @@ class City:
         self.has_river = has_river
 
         self.areas = []
-        regions = create_regions(population, density)
+        regions, roads_plans = create_regions(population, density)
         land = unary_union(regions)
 
         for region in regions:
             self.areas.append(Area(region, Category.LAND))
 
-        roads = create_roads(regions)
-
-        walls = create_walls(roads)
+        walls = create_walls(land)
         self.areas.append(Area(walls, Category.WALL))
 
-        roads = roads.difference(walls)
+        roads = create_roads(roads_plans)
+
+        doors = create_doors(walls, roads, land)
+        print(len(doors))
+        for door in doors:
+            self.areas.append(Area(door, Category.DOOR))
+
+        roads = cut_roads(roads, land)
+        # roads = roads.difference(walls)
         self.areas.append(Area(roads, Category.ROAD))
+
+        towers = create_towers(walls)
+        for tower in towers:
+            self.areas.append(Area(tower, Category.WALL))
 
         houses = create_houses(land, population)
         print(len(houses), 'houses')
